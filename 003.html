@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SDS | คลอรีนผง (Calcium hypochlorite 65%) — MSBRC2-SDS-02</title>
+  <style>
+    :root{--ink:#0f172a;--muted:#475569;--accent:#0ea5e9;--accent2:#a78bfa;--line:#e2e8f0;--paper:#f8fafc;--bg:#fff}
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);
+      font:16px/1.6 "Inter","Noto Sans Thai","Sarabun",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+    .container{max-width:1060px;margin:24px auto;padding:0 24px 24px;background:var(--bg);
+      border:1px solid var(--line);border-radius:18px;box-shadow:0 10px 24px rgba(2,6,23,.06)}
+    header{display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:center;
+      border-bottom:2px solid var(--line);padding:24px 16px 16px;margin-bottom:0}
+    .title h1{margin:0;font-size:30px;line-height:1.25;text-align:center;letter-spacing:.2px}
+    .meta{font-size:14px;color:var(--muted);text-align:center}
+    .badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:6px 0 8px}
+    .badge{display:inline-block;padding:4px 10px;border-radius:999px;background:#ecfeff;color:#0c4a6e;border:1px solid #bae6fd;font-size:12px}
+
+    .toolbar{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);
+      display:flex;gap:10px;justify-content:center;align-items:center;padding:10px 12px}
+    .btn{appearance:none;border:1px solid #2563eb;background:#2563eb;color:#fff;padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:600}
+    .btn:hover{background:#1d4ed8;border-color:#1d4ed8}
+    .btn.outline{background:#fff;color:#1f2937;border-color:#cbd5e1}
+    .btn.outline:hover{background:#f1f5f9}
+
+    section{padding:18px;border:1px solid var(--line);border-radius:16px;margin:16px 16px;background:#fff;border-left:6px solid var(--accent)}
+    section:nth-of-type(even){border-left-color:var(--accent2)}
+    section>h2{margin:0 0 10px 0;padding:10px 14px;border-radius:12px;border:1px solid var(--line);
+      background:linear-gradient(90deg,rgba(99,102,241,.16),rgba(244,63,94,.16))}
+    .frame{border:1.5px solid var(--line);background:#ffffff;border-radius:16px;padding:16px 18px;box-shadow:inset 0 1px 0 rgba(2,6,23,.03)}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .grid2{display:grid;grid-template-columns:1fr;gap:16px}
+    @media(min-width:960px){.grid2{grid-template-columns:1fr 1fr}}
+
+    table{width:100%;border-collapse:collapse;margin:8px 0}
+    .table th,.table td{border:1px solid var(--line);padding:8px;vertical-align:top}
+    .table th{background:#eef2ff;text-align:left;font-weight:700}
+    .table-compact th,.table-compact td{padding:6px 8px}
+    .table-zebra tbody tr:nth-child(odd){background:#f9fafb}
+
+    .info{background:#f1f5f9;border:1px solid var(--line);padding:12px;border-radius:12px}
+    .muted{color:var(--muted)}
+
+    .pictos{display:flex;gap:28px;flex-wrap:wrap;align-items:center}
+    .pictos figure{margin:0;text-align:center}
+    .pictos figcaption{font-size:12.5px;color:var(--muted);margin-top:8px}
+    .pictos img{filter: drop-shadow(0 0 8px rgba(239,68,68,.25));}
+
+    .pcards{display:grid;grid-template-columns:1fr;gap:16px}
+    @media(min-width:900px){.pcards{grid-template-columns:repeat(3,1fr)}}
+    .pcard{border:1.5px solid var(--line);border-radius:16px;background:#fff;box-shadow:0 3px 10px rgba(2,6,23,.06)}
+    .pcard h4{margin:0;padding:10px 14px;border-bottom:1px solid var(--line);
+      background:linear-gradient(90deg,rgba(99,102,241,.12),rgba(244,63,94,.12))}
+    .plist{list-style:none;margin:0;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+
+    @page{size:A4 portrait;margin:6mm}
+    @media print{
+      html,body{font-size:12px;background:#fff}
+      .container{margin:0;padding:0;border:0;box-shadow:none;background:#fff}
+      .toolbar{display:none}
+      header{margin:0 0 2mm 0;padding:8px 16px;border:0}
+      section{margin:0 0 3mm 0;padding:2mm 0;border:0;background:#fff}
+      section>h2{margin:0 0 1.5mm 0;padding:1.5mm 2mm;border:0}
+      .frame{margin:0;padding:1.5mm 0;border:0;background:#fff;box-shadow:none}
+      table{margin:1.5mm 0}
+      .table th,.table td{padding:3px 4px}
+      h2,h3,h4{page-break-after:avoid;break-inside:avoid;orphans:2;widows:2}
+      tr,figure,.pcard{break-inside:avoid}
+      *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    }
+  </style>
+  <script>
+    function toggleSDS(scrollToSec2=false){
+      const el=document.getElementById('sds-content');
+      const btn=document.getElementById('btn-run');
+      const hidden=el.style.display==='none';
+      el.style.display= hidden ? 'block':'none';
+      btn.textContent = hidden ? 'RunCode — ซ่อน SDS 1–16' : 'RunCode — แสดง SDS 1–16';
+      if(hidden){
+        setTimeout(()=>window.scrollTo({top:el.offsetTop-10,behavior:'smooth'}),50);
+        if(scrollToSec2){ setTimeout(()=>document.getElementById('sec2').scrollIntoView({behavior:'smooth'}),300); }
+      }
+    }
+  </script>
+</head>
+<body>
+
+<div class="container" role="document" aria-label="Safety Data Sheet">
+  <header>
+    <div class="title">
+      <h1>เอกสารข้อมูลความปลอดภัย (SDS)<br>คลอรีนผง — Calcium hypochlorite 65%</h1>
+      <div class="meta">รูปแบบ: GHS/CLP | ภาษาไทย | จัดทำ: 15 Aug 2025 | จัดทำโดย หน่วยงาน SHE&En ธุรกิจพันธุ์กุ้งทะเล 2 | หมายเลขเอกสาร MSBRC2-SDS-02</div>
+    </div>
+    <div class="badges">
+      <span class="badge">CAS 7778-54-3</span>
+      <span class="badge">UN 1748 – Calcium hypochlorite, dry</span>
+      <span class="badge">Class 5.1 (Oxidizer) • PG II</span>
+      <span class="badge">Storage Class: 5.1A</span>
+      <span class="badge">ประเภทที่ 2 — วัตถุกัดกร่อน (Corrosive Oxidizer)</span>
+    </div>
+  </header>
+
+  <!-- toolbar removed as requested: show content immediately -->
+
+  <div id="sds-content" style="display:block">
+
+    <!-- 1 -->
+    <section id="sec1">
+      <h2>ข้อ 1: ข้อมูลเกี่ยวกับสารหรือส่วนผสม และข้อมูลของผู้ผลิต/ผู้จัดจำหน่าย</h2>
+      <div class="frame">
+        <div class="grid">
+          <div class="info">
+            <h3>ข้อมูลผลิตภัณฑ์</h3>
+            <table class="table table-compact" aria-label="ข้อมูลผลิตภัณฑ์">
+              <tbody>
+                <tr><th>ชื่อผลิตภัณฑ์</th><td>คลอรีนผง — Calcium hypochlorite 65% (Available chlorine ~65–70%)</td></tr>
+                <tr><th>ชื่ออื่น/คำพ้อง</th><td>Calcium oxychloride; ไฮโปคลอไรต์ผง; Bleaching powder</td></tr>
+                <tr><th>การใช้ที่แนะนำ</th><td>สารฆ่าเชื้อ/บำบัดน้ำ, ฆ่าสาหร่าย, ทำความสะอาดเชิงอุตสาหกรรม (ใช้โดยผู้เชี่ยวชาญ)</td></tr>
+                <tr><th>การใช้ที่ไม่แนะนำ</th><td><strong>ห้าม</strong> ผสมกับกรด, แอมโมเนีย/แอมโมเนียม, สารอินทรีย์/เชื้อเพลิง; หลีกเลี่ยงความชื้น/ความร้อนสูง</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="info">
+            <h3>ผู้จำหน่าย (ประเทศไทย)</h3>
+            <p><strong>บริษัท:</strong> บริษัท เคมี เอเชีย จำกัด (CHEMASIA LIMITED)</p>
+            <p><strong>ที่อยู่:</strong> 1168/57–58 ชั้น 21 อาคารลุมพินีทาวเวอร์ ถนนพระราม 4 แขวงทุ่งมหาเมฆ เขตสาทร กรุงเทพฯ 10120</p>
+            <p><strong>โทรศัพท์:</strong> 02-679-8300 (สำนักงานใหญ่) | 088-494-8181</p>
+            <p><strong>อีเมล/เว็บไซต์:</strong> online@chemasia.co.th | https://www.chemasia.co.th</p>
+          </div>
+        </div>
+        <div class="info" style="margin-top:12px">
+          <h3>เบอร์ติดต่อฉุกเฉิน</h3>
+          <p><strong>ศูนย์พิษวิทยารามาธิบดี</strong> โทร. <strong>1367</strong> (24 ชม.)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section id="sec2">
+      <h2>ข้อ 2: การระบุอันตราย</h2>
+      <div class="frame">
+        <div class="grid">
+          <div>
+            <h3>การจัดประเภท (GHS/CLP)</h3>
+            <table class="table table-zebra table-compact" aria-label="การจัดประเภทตาม GHS/CLP">
+              <thead><tr><th>อันตราย</th><th>หมวด</th><th>รหัส</th></tr></thead>
+              <tbody>
+                <tr><td>ของแข็งออกซิไดซ์</td><td>Ox. Sol. 2</td><td>H272</td></tr>
+                <tr><td>เป็นอันตรายเฉียบพลัน (กิน)</td><td>Acute Tox. 4 (oral)</td><td>H302</td></tr>
+                <tr><td>กัดกร่อนผิวหนัง</td><td>Skin Corr. 1B</td><td>H314</td></tr>
+                <tr><td>ทำลายดวงตา</td><td>Eye Dam. 1</td><td>H318</td></tr>
+                <tr><td>เป็นพิษต่อสิ่งมีชีวิตในน้ำ</td><td>Aquatic Acute 1 / Chronic 1</td><td>H400 / H410</td></tr>
+                <tr><td>ข้อความเพิ่มเติม (EU)</td><td colspan="2">EUH031 — สัมผัสกับกรดปล่อยก๊าซพิษ (คลอรีน)</td></tr>
+                <tr><td>คำสัญญาณ (Signal word)</td><td colspan="2"><strong>Danger</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3>สัญลักษณ์อันตราย (GHS)</h3>
+            <div class="pictos" aria-label="GHS pictograms (official SVG)">
+              <figure>
+                <img loading="lazy" decoding="async"
+                     src="https://commons.wikimedia.org/wiki/Special:FilePath/GHS-pictogram-rondflam.svg"
+                     alt="GHS03 – Oxidizer (flame over circle)" width="140" height="140"
+                     style="display:block;max-width:140px;height:auto"
+                     onerror="this.onerror=null;this.replaceWith((()=>{const s=`<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 200 200' role='img' aria-label='GHS03 – Oxidizer'><rect x='30' y='30' width='140' height='140' transform='rotate(45 100 100)' fill='#fff' stroke='#ff1e1e' stroke-width='16'/><g fill='#000'><circle cx='100' cy='122' r='22'/><path d='M100 52c12 12 22 24 22 36 0 14-10 26-22 26s-22-12-22-26c0-12 10-24 22-36z'/></g></svg>`;const d=document.createElement('div');d.innerHTML=s.trim();return d.firstChild;})());"/>
+                <figcaption>GHS03 – Oxidizer</figcaption>
+              </figure>
+              <figure>
+                <img loading="lazy" decoding="async" src="https://commons.wikimedia.org/wiki/Special:FilePath/GHS-pictogram-acid.svg" alt="GHS05 – Corrosive" width="140" height="140" style="display:block;max-width:140px;height:auto"/>
+                <figcaption>GHS05 – Corrosive</figcaption>
+              </figure>
+              <figure>
+                <img loading="lazy" decoding="async" src="https://commons.wikimedia.org/wiki/Special:FilePath/GHS-pictogram-exclam.svg" alt="GHS07 – Exclamation" width="140" height="140" style="display:block;max-width:140px;height:auto"/>
+                <figcaption>GHS07 – Exclamation</figcaption>
+              </figure>
+              <figure>
+                <img loading="lazy" decoding="async" src="https://commons.wikimedia.org/wiki/Special:FilePath/GHS-pictogram-pollu.svg" alt="GHS09 – Environment" width="140" height="140" style="display:block;max-width:140px;height:auto"/>
+                <figcaption>GHS09 – Environment</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <h3>ข้อความแสดงอันตราย (H)</h3>
+        <ul>
+          <li><strong>H272</strong> อาจทำให้ไฟลุกลามรุนแรงขึ้น; เป็นตัวออกซิไดซ์</li>
+          <li><strong>H302</strong> เป็นอันตรายหากกลืนกิน</li>
+          <li><strong>H314 / H318</strong> กัดกร่อนผิวหนังรุนแรง/ทำลายดวงตา</li>
+          <li><strong>H400 / H410</strong> มีพิษอย่างรุนแรงต่อสิ่งมีชีวิตในน้ำ และมีผลกระทบยาวนาน</li>
+          <li><strong>EUH031</strong> สัมผัสกับกรดปล่อยก๊าซพิษ (คลอรีน)</li>
+        </ul>
+
+        <h3>ข้อความแนะนำการป้องกัน (P) — สรุป</h3>
+        <div class="pcards">
+          <div class="pcard"><h4>ทั่วไป/ป้องกัน</h4>
+            <ul class="plist">
+              <li>P210 อยู่ห่างจากแหล่งความร้อน/ประกายไฟ/เปลวไฟ</li>
+              <li>P220 แยกจากสารอินทรีย์/เชื้อเพลิง/วัสดุติดไฟ</li>
+              <li>P260 หลีกเลี่ยงการหายใจเอาฝุ่น/ไอ</li>
+              <li>P280 สวมถุงมือ แว่นครอบตา/กระบังหน้า เสื้อกันสาร</li>
+              <li>P273 หลีกเลี่ยงการปล่อยลงสิ่งแวดล้อม</li>
+            </ul>
+          </div>
+          <div class="pcard"><h4>ตอบโต้เหตุ</h4>
+            <ul class="plist">
+              <li>P301+P330+P331 หากกลืน: บ้วนปาก ห้ามทำให้อาเจียน ติดต่อแพทย์</li>
+              <li>P303+P361+P353 ผิวหนัง: ถอดเสื้อผ้าปนเปื้อน ล้างน้ำมากๆ</li>
+              <li>P304+P340 สูดดม: ย้ายไปอากาศบริสุทธิ์</li>
+              <li>P305+P351+P338 ตา: ล้างน้ำ 15–20 นาที</li>
+              <li>P370+P378 ไฟไหม้: ใช้น้ำจำนวนมากดับ/หล่อเย็น</li>
+            </ul>
+          </div>
+          <div class="pcard"><h4>จัดเก็บ/กำจัด</h4>
+            <ul class="plist">
+              <li>P405 เก็บในที่ล็อกได้ แห้ง เย็น แยกจากกรด/อินทรีย์/ตัวรีดิวซ์</li>
+              <li>P501 กำจัดตามกฎหมาย (อาจรีดิวซ์ด้วย sodium thiosulfate/bisulfite)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section id="sec3">
+      <h2>ข้อ 3: ส่วนประกอบ/ข้อมูลเกี่ยวกับส่วนผสม</h2>
+      <div class="frame">
+        <table class="table table-zebra table-compact" aria-label="ส่วนประกอบ">
+          <thead><tr><th>สาร</th><th>CAS No.</th><th>EC No.</th><th>ความเข้มข้น</th><th>การจัดประเภท GHS</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Calcium hypochlorite</td><td>7778-54-3</td><td>231-908-7</td><td>~65% w/w</td>
+              <td>Ox. Sol. 2; Acute Tox. 4; Skin Corr. 1B; Eye Dam. 1; Aquatic Acute 1/Chronic 1</td>
+            </tr>
+            <tr>
+              <td>Calcium hydroxide / CaCO₃ / NaCl / ความชื้น</td>
+              <td>1305-62-0 / 471-34-1 / 7647-14-5 / 7732-18-5</td>
+              <td>215-137-3 / 207-439-9 / 231-598-3 / 231-791-2</td>
+              <td>สิ่งเจือปน/ตัวปรับเสถียร</td>
+              <td>Ca(OH)₂: Skin Irrit. 2 / Eye Dam. 1 (ขึ้นกับระดับ)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section id="sec4">
+      <h2>ข้อ 4: มาตรการปฐมพยาบาลเบื้องต้น</h2>
+      <div class="frame">
+        <div class="grid2">
+          <div class="info">
+            <h3>อาการสำคัญ</h3>
+            <ul>
+              <li>ผิวหนัง: แสบร้อน/กัดกร่อน บวมแดง พอง</li>
+              <li>ตา: ปวดแสบตารุนแรง ตาพร่ามัว น้ำตาไหล เสี่ยงเสียหายถาวร</li>
+              <li>สูดดม: ระคายเคืองรุนแรง ไอ หายใจลำบาก (ผสมกรดให้คลอรีน)</li>
+              <li>กลืนกิน: ปวดแสบปาก/คอ อาเจียน แผลกัดกร่อนทางเดินอาหาร</li>
+            </ul>
+          </div>
+          <div class="info">
+            <h3>การปฐมพยาบาล</h3>
+            <table class="table table-compact table-zebra">
+              <thead><tr><th>กรณี</th><th>แนวทางปฏิบัติ</th></tr></thead>
+              <tbody>
+                <tr><td>เข้าตา</td><td>ล้างน้ำ 15–20 นาที เปิดเปลือกตาเป็นระยะ รีบพบจักษุแพทย์</td></tr>
+                <tr><td>ผิวหนัง</td><td>ชะล้างน้ำมาก ๆ 15 นาที ถอดเสื้อผ้าปนเปื้อน</td></tr>
+                <tr><td>สูดดม</td><td>ย้ายไปอากาศบริสุทธิ์ ให้ O₂ หากจำเป็น ติดต่อแพทย์</td></tr>
+                <tr><td>กลืนกิน</td><td>ล้างปาก ดื่มน้ำ 1–2 แก้ว ห้ามทำให้อาเจียน ส่งโรงพยาบาล</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 -->
+    <section id="sec5">
+      <h2>ข้อ 5: มาตรการระงับอัคคีภัย</h2>
+      <div class="frame">
+        <table class="table table-zebra table-compact">
+          <tbody>
+            <tr><th>สารดับเพลิงที่เหมาะสม</th><td>น้ำปริมาณมาก/สเปรย์น้ำ (ดับและหล่อเย็น)</td></tr>
+            <tr><th>ไม่แนะนำ</th><td>โฟมหรือผงที่มีแอมโมเนียมซอลต์; CO₂ ประสิทธิภาพจำกัด</td></tr>
+            <tr><th>อันตรายจากไฟ</th><td>สลายตัวให้คลอรีน/ออกซิเจน; ความร้อนสูงทำให้ภาชนะระเบิด</td></tr>
+            <tr><th>คำแนะนำ</th><td>สวม SCBA/ชุดกันสาร ป้องกันน้ำดับเพลิงลงท่อระบายน้ำ</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 6 -->
+    <section id="sec6">
+      <h2>ข้อ 6: มาตรการเมื่อมีการรั่วไหลโดยไม่ตั้งใจ</h2>
+      <div class="frame">
+        <div class="grid">
+          <div>
+            <h3>การป้องกันบุคคล/อุปกรณ์</h3>
+            <ul>
+              <li>อพยพผู้ไม่เกี่ยวข้อง ระบายอากาศ</li>
+              <li>PPE: แว่นครอบตา/กระบังหน้า ถุงมือ NBR/Neoprene/PVC ชุดกันสาร รองเท้าบูท</li>
+            </ul>
+          </div>
+          <div>
+            <h3>การป้องกันสิ่งแวดล้อม</h3>
+            <ul>
+              <li>ปิดกั้นท่อ/ทางน้ำ หลีกเลี่ยงปล่อยลงสิ่งแวดล้อม</li>
+            </ul>
+          </div>
+        </div>
+        <h3>วิธีเก็บกู้</h3>
+        <ul>
+          <li>กวาด/โกยใส่ภาชนะ HDPE/PP ปิดสนิท แยกจากกรด/อินทรีย์</li>
+          <li>รีดิวซ์ด้วย sodium thiosulfate/bisulfite ภายใต้การควบคุม</li>
+          <li>ล้างพื้นที่ด้วยน้ำอย่างพอเหมาะ หลีกเลี่ยงไหลลงท่อ</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 7 -->
+    <section id="sec7">
+      <h2>ข้อ 7: การจัดการและการเก็บรักษา</h2>
+      <div class="frame">
+        <div class="grid">
+          <div>
+            <h3>การใช้งาน</h3>
+            <ul>
+              <li>ทำงานในที่อากาศถ่ายเท/ดูดไอเฉพาะที่</li>
+              <li>ห้ามผสมกับกรด แอมโมเนีย สารอินทรีย์/เชื้อเพลิง โลหะบาง</li>
+              <li>ใช้อุปกรณ์ที่ทนกัดกร่อน/ออกซิไดซ์: PVC/CPVC/PE/PP/PTFE</li>
+            </ul>
+          </div>
+          <div>
+            <h3>การเก็บรักษา</h3>
+            <table class="table table-compact table-zebra">
+              <tbody>
+                <tr><th>อุณหภูมิ</th><td>เย็น แห้ง มืด (5–25°C); หลีกเลี่ยงแดด</td></tr>
+                <tr><th>ภาชนะ</th><td>HDPE/PP ปิดสนิท กันความชื้น</td></tr>
+                <tr><th>แยกเก็บ</th><td>จากกรด สารอินทรีย์ ตัวรีดิวซ์ โลหะ และวัสดุติดไฟ</td></tr>
+                <tr><th>ป้องกัน</th><td>ป้ายเตือนชัดเจน ระบายอากาศดี แผนรับมือการสลายตัว/เกิดความร้อน</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 -->
+    <section id="sec8">
+      <h2>ข้อ 8: การควบคุมการสัมผัสและการป้องกันส่วนบุคคล</h2>
+      <div class="frame">
+        <div class="grid">
+          <div>
+            <h3>ค่าเกณฑ์การสัมผัส (อ้างอิง Cl₂)</h3>
+            <table class="table table-zebra table-compact">
+              <thead><tr><th>สาร</th><th>หน่วยงาน</th><th>ค่า</th><th>หมายเหตุ</th></tr></thead>
+              <tbody>
+                <tr><td>คลอรีน</td><td>NIOSH REL (Ceiling)</td><td>0.5 ppm (15 นาที)</td><td>ไอคลอรีนอาจเกิดจากการสลายตัว/ผสมกับกรด</td></tr>
+                <tr><td>คลอรีน</td><td>OSHA PEL (Ceiling)</td><td>1 ppm</td><td>—</td></tr>
+                <tr><td>คลอรีน</td><td>ACGIH TLV</td><td>0.5 ppm (TWA) / 1 ppm (STEL)</td><td>—</td></tr>
+              </tbody>
+            </table>
+            <p class="muted">ไม่มีค่า TWA/STEL เฉพาะสำหรับ Ca(ClO)₂ แข็ง — ใช้มาตรฐาน Cl₂ เป็นสารสัมพันธ์</p>
+          </div>
+          <div>
+            <h3>PPE ที่แนะนำ</h3>
+            <ul>
+              <li>แว่นครอบตาเคมี + กระบังหน้า</li>
+              <li>ถุงมือ NBR/Neoprene/PVC (≥0.4 มม.)</li>
+              <li>เอี๊ยม/ชุดกันสารเคมี, รองเท้าบูทกันสาร</li>
+              <li>หน้ากากกรองผง/คาร์ทริดจ์คลอรีน; เหตุฉุกเฉินใช้ SCBA</li>
+              <li>จัดให้มีฝักบัวนิรภัย/ที่ล้างตา</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9 -->
+    <section id="sec9">
+      <h2>ข้อ 9: สมบัติทางกายภาพและเคมี</h2>
+      <div class="frame">
+        <table class="table table-zebra table-compact">
+          <tbody>
+            <tr><th>ลักษณะ</th><td>ของแข็ง เม็ด/ผง สีขาวถึงเทาอ่อน กลิ่นคลอรีน</td></tr>
+            <tr><th>pH (1%)</th><td>~10.4–11.4</td></tr>
+            <tr><th>จุดสลายตัว</th><td>~176–180 °C</td></tr>
+            <tr><th>ความหนาแน่นของของแข็ง</th><td>~2.35 g/cm³</td></tr>
+            <tr><th>การละลายน้ำ (25 °C)</th><td>~21 g/100 mL</td></tr>
+            <tr><th>การติดไฟ</th><td>ไม่ติดไฟ (แต่เป็นตัวออกซิไดซ์)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section id="sec10">
+      <h2>ข้อ 10: ความเสถียรและความไวต่อการเกิดปฏิกิริยา</h2>
+      <div class="frame">
+        <ul>
+          <li><strong>ปฏิกิริยา:</strong> ออกซิไดซ์แรง; ถูกกรดให้คลอรีน</li>
+          <li><strong>เสถียรภาพ:</strong> เสถียรเมื่อแห้ง/เย็น/มืด แต่เสื่อมเมื่อชื้น/ร้อน/ปนเปื้อน</li>
+          <li><strong>หลีกเลี่ยง:</strong> ความร้อน แสงแดด ความชื้น การปนเปื้อนโลหะ/อินทรีย์</li>
+          <li><strong>เข้ากันไม่ได้:</strong> กรด, แอมโมเนีย/ยูเรีย, ตัวรีดิวซ์, สารอินทรีย์, โลหะ</li>
+          <li><strong>สลายตัว:</strong> Cl₂, O₂, คลอไรด์/คลอเรต</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section id="sec11">
+      <h2>ข้อ 11: ข้อมูลพิษวิทยา</h2>
+      <div class="frame">
+        <table class="table table-zebra table-compact">
+          <tbody>
+            <tr><th>พิษเฉียบพลัน (oral, rat)</th><td>LD₅₀ ~ 850 mg/kg</td></tr>
+            <tr><th>ระคายเคือง/กัดกร่อน</th><td>ผิวหนังกัดกร่อน 1B; ตาทำลาย 1</td></tr>
+            <tr><th>ภูมิแพ้</th><td>ไม่น่าก่อภูมิแพ้ผิว</td></tr>
+            <tr><th>อวัยวะเป้าหมาย</th><td>ทางเดินหายใจส่วนบน (ไอคลอรีน)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 12 -->
+    <section id="sec12">
+      <h2>ข้อ 12: ข้อมูลระบบนิเวศ</h2>
+      <div class="frame">
+        <ul>
+          <li>พิษต่อสิ่งมีชีวิตน้ำ: สูง (Aquatic Acute 1; Chronic 1)</li>
+          <li>ย่อยสลาย: สุดท้ายเป็นคลอไรด์</li>
+          <li>การสะสม: ไม่น่าจะสะสม (สารอนินทรีย์)</li>
+          <li>ควบคุมไม่ให้ลงท่อ/แหล่งน้ำ</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 13 -->
+    <section id="sec13">
+      <h2>ข้อ 13: ข้อควรพิจารณาในการกำจัด</h2>
+      <div class="frame">
+        <ul>
+          <li>รีดิวซ์/ทำให้เป็นกลาง (sodium thiosulfate/bisulfite) ภายใต้การควบคุม</li>
+          <li>กำจัดโดยผู้รับอนุญาต ภาชนะล้างน้ำหลายครั้งก่อนทิ้ง/รีไซเคิล</li>
+          <li>ปฏิบัติตามกฎหมายท้องถิ่น/ประเทศ</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 14 -->
+    <section id="sec14">
+      <h2>ข้อ 14: ข้อมูลเกี่ยวกับการขนส่ง</h2>
+      <div class="frame">
+        <div class="grid-3">
+          <div class="info"><h3>ADR/RID</h3><p><strong>UN 1748</strong> — Calcium hypochlorite, dry<br>ชั้น 5.1; PG II</p></div>
+          <div class="info"><h3>IMDG</h3><p><strong>UN 1748</strong> — Calcium hypochlorite, dry<br>ชั้น 5.1; PG II; <em>Marine pollutant:</em> ใช่ (เมื่อเข้าเกณฑ์)</p></div>
+          <div class="info"><h3>IATA/ICAO</h3><p><strong>UN 1748</strong> — Calcium hypochlorite, dry<br>ชั้น 5.1; PG II</p></div>
+        </div>
+        <p><strong>ฉลากขนส่ง:</strong> 5.1 (Oxidizer)</p>
+      </div>
+    </section>
+
+    <!-- 15 -->
+    <section id="sec15">
+      <h2>ข้อ 15: ข้อมูลเกี่ยวกับกฎหมาย</h2>
+      <div class="frame">
+        <ul>
+          <li>สอดคล้อง GHS/CLP (EU) และ OSHA HazCom 2012 (US)</li>
+          <li>ไทย: แนวทางจัดเก็บ <strong>Storage Class 5.1A</strong> (สารออกซิไดซ์)</li>
+          <li>ชนิดวัตถุอันตราย: ประเภทที่ 2 — วัตถุกัดกร่อน (รวมคุณสมบัติออกซิไดซ์)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 16 -->
+    <section id="sec16">
+      <h2>ข้อ 16: ข้อมูลอื่น ๆ</h2>
+      <div class="frame">
+        <div class="grid">
+          <div class="info">
+            <h3>การควบคุมเอกสาร (Document Control)</h3>
+            <table class="table table-compact" aria-label="Document control">
+              <tbody>
+                <tr><th>หมายเลขเอกสาร</th><td>MSBRC2-SDS-02</td></tr>
+                <tr><th>ชื่อผลิตภัณฑ์</th><td>Calcium hypochlorite 65% (คลอรีนผง)</td></tr>
+                <tr><th>วันที่จัดทำ/ปรับปรุง</th><td>15 สิงหาคม 2025</td></tr>
+                <tr><th>สถานะ</th><td>ใช้งาน (Effective)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="info">
+            <h3>คำแนะนำเพิ่มเติม</h3>
+            <ul>
+              <li>ฝึกอบรมการจัดการสารออกซิไดซ์/เหตุฉุกเฉิน</li>
+              <li>เฝ้าระวังอุณหภูมิ/การเสื่อมของผลิตภัณฑ์</li>
+              <li>ทบทวน SDS อย่างน้อยปีละครั้ง</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="info">
+          <strong>คำชี้แจงความรับผิดชอบ:</strong> เอกสารนี้จัดทำเพื่อสนับสนุนความปลอดภัยในการทำงาน อ้างอิงมาตรฐานสากลและข้อมูลอุตสาหกรรมที่เชื่อถือได้ แต่ไม่ถือเป็นการรับประกันคุณสมบัติของผลิตภัณฑ์ ผู้ใช้ต้องประเมินความเสี่ยงและปฏิบัติตามกฎหมายที่เกี่ยวข้อง
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+</body>
+</html>
