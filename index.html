@@ -3,514 +3,377 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SDS | คลอรีนน้ำ (Sodium hypochlorite 10%) — MSBRC2-SDS-01</title>
+  <title>คู่มือขออนุญาตทำงาน – ธุรกิจพันธุ์กุ้งทะเล 2</title>
+  <meta name="description" content="Work Permit Manual — SHE&En ธุรกิจพันธุ์กุ้งทะเล 2" />
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans Thai', 'system-ui', 'Segoe UI', 'Arial', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <!-- React + ReactDOM + Babel (UMD) -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <style>
-    :root{--ink:#0f172a;--muted:#475569;--accent:#0ea5e9;--accent2:#a78bfa;--line:#e2e8f0;--paper:#f8fafc;--bg:#fff}
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);
-      font:16px/1.6 "Inter","Noto Sans Thai","Sarabun",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
-    .container{max-width:1060px;margin:24px auto;padding:24px;background:var(--bg);
-      border:1px solid var(--line);border-radius:18px;box-shadow:0 10px 24px rgba(2,6,23,.06)}
-    header{display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:center;
-      border-bottom:2px solid var(--line);padding-bottom:16px;margin-bottom:22px}
-    .title h1{margin:0;font-size:34px;line-height:1.25;text-align:center;letter-spacing:.2px}
-    .meta{font-size:14px;color:var(--muted);text-align:center}
-    .badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
-    .badge{display:inline-block;padding:4px 10px;border-radius:999px;background:#ecfeff;color:#0c4a6e;border:1px solid #bae6fd;font-size:12px}
-
-    section{padding:18px;border:1px solid var(--line);border-radius:16px;margin:16px 0;background:#fff;border-left:6px solid var(--accent)}
-    section:nth-of-type(even){border-left-color:var(--accent2)}
-    section>h2{margin:0 0 10px 0;padding:10px 14px;border-radius:12px;border:1px solid var(--line);
-      background:linear-gradient(90deg,rgba(99,102,241,.16),rgba(244,63,94,.16))}
-    .frame{border:1.5px solid var(--line);background:#ffffff;border-radius:16px;padding:16px 18px;box-shadow:inset 0 1px 0 rgba(2,6,23,.03)}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .grid2{display:grid;grid-template-columns:1fr;gap:16px}
-    @media(min-width:960px){.grid2{grid-template-columns:1fr 1fr}}
-
-    table{width:100%;border-collapse:collapse;margin:8px 0}
-    .table th,.table td{border:1px solid var(--line);padding:8px;vertical-align:top}
-    .table th{background:#eef2ff;text-align:left;font-weight:700}
-    .table-compact th,.table-compact td{padding:6px 8px}
-    .table-zebra tbody tr:nth-child(odd){background:#f9fafb}
-
-    .info{background:#f1f5f9;border:1px solid var(--line);padding:12px;border-radius:12px}
-    .muted{color:var(--muted)}
-
-    /* pictogram layout */
-    .pictos{display:flex;gap:28px;flex-wrap:wrap;align-items:center}
-    .pictos figure{margin:0;text-align:center}
-    .pictos figcaption{font-size:12.5px;color:var(--muted);margin-top:8px}
-    .pictos img{display:block;max-width:120px;height:auto;filter: drop-shadow(0 0 8px rgba(239,68,68,.22));}
-
-    /* precaution cards */
-    .pcards{display:grid;grid-template-columns:1fr;gap:16px}
-    @media(min-width:900px){.pcards{grid-template-columns:repeat(3,1fr)}}
-    .pcard{border:1.5px solid var(--line);border-radius:16px;background:#fff;box-shadow:0 3px 10px rgba(2,6,23,.06)}
-    .pcard h4{margin:0;padding:10px 14px;border-bottom:1px solid var(--line);
-      background:linear-gradient(90deg,rgba(99,102,241,.12),rgba(244,63,94,.12))}
-    .plist{list-style:none;margin:0;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
-    .code{display:inline-block;font-weight:700;font-size:12px;padding:2px 8px;border-radius:999px;background:#eef2ff;color:#3730a3;border:1px solid #c7d2fe;margin-right:6px}
-
-    /* print */
-    @page{size:A4 portrait;margin:6mm}
-    @media print{
-      html,body{font-size:12px;background:#fff}
-      .container{margin:0;padding:0;border:0;box-shadow:none;background:#fff}
-      header{margin:0 0 2mm 0;padding:0;border:0}
-      section{margin:0 0 3mm 0;padding:2mm 0;border:0;background:#fff}
-      section>h2{margin:0 0 1.5mm 0;padding:1.5mm 2mm;border:0}
-      .frame{margin:0;padding:1.5mm 0;border:0;background:#fff;box-shadow:none}
-      table{margin:1.5mm 0}
-      .table th,.table td{padding:3px 4px}
-      h2,h3,h4{page-break-after:avoid;break-inside:avoid;orphans:2;widows:2}
-      tr,figure,.pcard{break-inside:avoid}
-      .pcard{border:1px solid #d1d5db}
-      *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    html, body { height: 100%; }
+    body { background: linear-gradient(to bottom, #ffffff, #f8fafc, #f1f5f9); }
+    @media print {
+      header { position: static !important; }
+      button#printBtn { display: none !important; }
     }
   </style>
 </head>
-<body>
+<body class="min-h-screen text-slate-900">
+  <div id="root"></div>
 
-<div class="container" role="document" aria-label="Safety Data Sheet">
-  <header>
-    <div class="title">
-      <h1>เอกสารข้อมูลความปลอดภัย (SDS)<br>คลอรีนน้ำ – Sodium hypochlorite 10%</h1>
-      <div class="meta">
-        รูปแบบ: GHS/CLP | ภาษาไทย | จัดทำ: 15 Aug 2025 | จัดทำโดย หน่วยงาน SHE&En ธุรกิจพันธุ์กุ้งทะเล 2 | หมายเลขเอกสาร MSBRC2-SDS-01
-      </div>
-    </div>
-    <div class="badges">
-      <span class="badge">CAS 7681-52-9</span>
-      <span class="badge">UN 1791 – Hypochlorite solution</span>
-      <span class="badge">Class 8 (Corrosive) • PG III</span>
-      <span class="badge">Storage Class: 8B</span>
-      <span class="badge">ชนิดวัตถุอันตราย ประเภทที่ 2 (วัตถุกัดกร่อน)</span>
-    </div>
-  </header>
+  <script type="text/babel">
+    const { useMemo, useState, useEffect } = React;
 
-  <!-- แสดงผลทันที: ไม่มีปุ่ม/ไม่มีสคริปต์ -->
-  <div id="sds-content">
+    // -------- Minimal UI (shadcn/ui-lite) --------
+    const clsx = (...xs) => xs.filter(Boolean).join(' ');
 
-    <!-- 1 -->
-    <section id="sec1">
-      <h2>ข้อ 1: ข้อมูลเกี่ยวกับสารหรือส่วนผสม และข้อมูลของผู้ผลิต/ผู้จัดจำหน่าย</h2>
-      <div class="frame">
-        <div class="grid">
-          <div class="info">
-            <h3>ข้อมูลผลิตภัณฑ์</h3>
-            <table class="table table-compact" aria-label="ข้อมูลผลิตภัณฑ์">
-              <tbody>
-                <tr><th>ชื่อผลิตภัณฑ์</th><td>คลอรีนน้ำ – Sodium hypochlorite 10% w/w <span class="muted">(available chlorine ~10–12%)</span></td></tr>
-                <tr><th>ชื่ออื่น/คำพ้อง</th><td>น้ำยาฟอกขาว; Hypochlorite solution; Bleach</td></tr>
-                <tr><th>การใช้ที่แนะนำ</th><td>สารฆ่าเชื้อพื้นผิว/อุปกรณ์; ปรับสภาพน้ำ/บำบัดน้ำเสีย; ใช้งานเชิงอุตสาหกรรม (โดยผู้ชำนาญ)</td></tr>
-                <tr><th>การใช้ที่ไม่แนะนำ</th><td><strong>ห้าม</strong> ผสมกับกรด/แอมโมเนีย/แอมโมเนียม; ห้ามใช้เพื่อการบริโภค; ห้ามผสมผลิตภัณฑ์อื่น</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="info">
-            <h3>ผู้ผลิต/ผู้นำเข้า/ผู้จัดจำหน่าย</h3>
-            <p><strong>บริษัท:</strong> บริษัท อควาติก ซัพพลาย โซลูชั่นส์ จำกัด</p>
-            <p><strong>โทรศัพท์:</strong> 063-269-2902, 02-918-1010, 084-698-2003</p>
-            <p><strong>ที่อยู่:</strong> 111/99 ถนนรัชดา-รามอินทรา แขวงคันนายาว เขตคันนายาว กรุงเทพมหานคร 10230 ประเทศไทย</p>
-          </div>
+    const Card = ({ className="", children }) => (
+      <div className={clsx("rounded-2xl border bg-white", className)}>{children}</div>
+    );
+    const CardHeader = ({ className="", children }) => (
+      <div className={clsx("px-4 py-3 border-b border-black/5", className)}>{children}</div>
+    );
+    const CardTitle = ({ className="", children }) => (
+      <div className={clsx("text-base md:text-lg font-semibold", className)}>{children}</div>
+    );
+    const CardContent = ({ className="", children }) => (
+      <div className={clsx("px-4 py-4", className)}>{children}</div>
+    );
+
+    const Button = ({ className="", children, onClick, variant="default", size="md", id }) => {
+      const base = "inline-flex items-center justify-center rounded-xl font-medium shadow-sm transition active:scale-[.99]";
+      const sizes = size === "sm" ? "h-9 px-3 text-sm" : "h-10 px-4 text-sm";
+      const variants = variant === "secondary"
+        ? "bg-white border border-slate-200 text-slate-700 hover:bg-slate-50"
+        : "bg-emerald-600 text-white hover:bg-emerald-700";
+      return <button id={id} className={clsx(base, sizes, variants, className)} onClick={onClick}>{children}</button>;
+    };
+
+    const Badge = ({ className="", children, variant="secondary" }) => {
+      const variants = variant === "secondary"
+        ? "bg-slate-100 text-slate-700"
+        : "bg-emerald-600 text-white";
+      return <span className={clsx("inline-flex items-center rounded-full h-6 px-2.5 text-xs font-medium", variants, className)}>{children}</span>;
+    };
+
+    const Input = ({ className="", ...props }) => (
+      <input
+        {...props}
+        className={clsx("h-10 w-full max-w-sm rounded-xl border border-slate-300 px-3 text-sm outline-none ring-0 focus:border-emerald-400", className)}
+      />
+    );
+
+    // ---------- Simple Icon helper (emoji) ----------
+    const Ico = ({ label, emoji, className="" }) => (
+      <span role="img" aria-label={label} className={clsx("inline-flex items-center justify-center h-4 w-4", className)}>{emoji}</span>
+    );
+
+    // ---------- Document meta ----------
+    const DOC = {
+      business: "ธุรกิจพันธุ์กุ้งทะเล 2",
+      docNo: "MSBRC2-WP-01",
+      preparedBy: "SHE&En ธุรกิจพันธุ์กุ้งทะเล 2",
+      effective: "24/8/2568",
+      rev: "0",
+      review: "0"
+    };
+
+    // ---------- Data (8 categories) ----------
+    const CATS = [
+      {
+        id: "elec",
+        color: "border-yellow-200",
+        headerBg: "from-yellow-50 to-white",
+        icon: <Ico label="ไฟฟ้า" emoji="⚡" className="text-yellow-600" />,
+        title: "งานไฟฟ้า (รวม LOTO)",
+        must: [
+          "ซ่อมตู้คอนโทรล/เดินสายเมนใหม่",
+          "ทำงานใน MCC/DB ที่มีพลังงานตกค้าง (ต้อง LOTO)",
+          "ซ่อมโบลเวอร์/ปั๊มน้ำ/โอโซน โดยต้องแยกพลังงาน"
+        ],
+        exempt: [
+          "เปิด–ปิดสวิตช์/เดินเบรกเกอร์ตามการใช้งานปกติ (ภายใต้ WI)",
+          "งานปลั๊ก–ต่อ–สาย ถอดปลั๊กออกและควบคุมโดยผู้ทำงาน"
+        ],
+        hazards: ["ไฟฟ้าดูด/อาร์คแฟลช", "ไฟไหม้", "สะดุ้งตกจากที่สูง"],
+        precheck: ["LOTO 7 ขั้นตอน", "Test before touch", "ตรวจสอบ RCD/ELCB", "เขตหวงห้ามและป้ายเตือน"],
+        ppe: ["ถุงมือฉนวน", "หน้ากากกันอาร์ค", "ชุด FR", "รองเท้า Dielectric"],
+        examples: ["ซ่อม MCC ปั๊มน้ำ", "เดินสายไฟโรงอนุบาล"],
+        toolbox: ["ผังวงจรโดยย่อ", "ผู้ถือกุญแจ LOTO", "เขตหวงห้าม"],
+        stop: ["พบแรงดันไฟหลัง LOTO", "กลิ่นไหม้/ควัน", "อุปกรณ์ฉนวนชำรุด"]
+      },
+      {
+        id: "cs",
+        color: "border-blue-200",
+        headerBg: "from-blue-50 to-white",
+        icon: <Ico label="ที่อับอากาศ" emoji="🧯" className="text-blue-600" />,
+        title: "การเข้าทำงานในที่อับอากาศ (Confined Space Entry)",
+        must: ["เข้าถังเก็บสารเคมี/แทงก์น้ำเค็ม/ไฮโป", "เข้า wet well บ่อสูบที่เสี่ยงก๊าซ"],
+        exempt: ["ไม่มีงานประจำประเภทนี้", "Reclassify เป็น non-permit โดยพิสูจน์ปลอดภัย"],
+        hazards: ["ออกซิเจนต่ำ/ก๊าซพิษ", "จมน้ำ/ engulfment"],
+        precheck: ["ตรวจวัด O2/LEL/H2S/CO", "LOTO ของไหล/พลังงาน", "กำหนดบทบาท 3 คน", "ระบบสื่อสารพร้อม"],
+        ppe: ["Full body harness + winch", "Gas detector", "SCBA หรือ respirator ตามความเสี่ยง"],
+        examples: ["เข้าแทงก์โซดาไฟเปลี่ยนวาล์ว", "ลง wet well ดึงตะแกรงเศษวัสดุ"],
+        toolbox: ["มาตรฐานอากาศปลอดภัย", "เส้นทางอพยพ", "ผู้เฝ้าระวัง"],
+        stop: ["ค่าอากาศนอกเกณฑ์", "สื่อสารขัดข้อง", "ไม่มีผู้เฝ้าระวัง"]
+      },
+      {
+        id: "hot",
+        color: "border-orange-200",
+        headerBg: "from-orange-50 to-white",
+        icon: <Ico label="งานร้อน" emoji="🔥" className="text-orange-600" />,
+        title: "งานความร้อน/ประกายไฟ (Hot Work)",
+        must: ["เชื่อม/ตัด/เจียรโครงเหล็ก", "ใช้แก๊สตัดโลหะ"],
+        exempt: ["สว่าน/เครื่องมือไฟฟ้าที่ไม่เกิดประกายไฟรุนแรง", "ทำในเขตเชื่อมถาวรที่ควบคุมแล้ว"],
+        hazards: ["ไฟไหม้/ระเบิด", "สะเก็ดไฟลามเศษวัสดุ"],
+        precheck: ["ตรวจ LEL < 10%", "ย้ายเชื้อเพลิงในรัศมี ~15 ม.", "Fire Watch 30–60 นาที", "ตรวจสาย/ถังแก๊ส"],
+        ppe: ["หน้ากากเชื่อม", "ถุงมือหนัง", "รองเท้านิรภัย", "แว่นตา"],
+        examples: ["เชื่อมฐานมอเตอร์", "เจียรแก้สลักพัดน้ำ"],
+        toolbox: ["เส้นทางอพยพ", "สัญญาณหยุดงานฉุกเฉิน"],
+        stop: ["พบก๊าซรั่ว", "ไม่มี Fire Watch"]
+      },
+      {
+        id: "wah",
+        color: "border-purple-200",
+        headerBg: "from-purple-50 to-white",
+        icon: <Ico label="ที่สูง" emoji="📏" className="text-purple-600" />,
+        title: "งานบนที่สูง (≥ 2 ม. หรือเอียง > 15°)",
+        must: ["ปีนเสาไฟฟ้า", "ใช้บันได > 2 ม. เปลี่ยนหลอดไฟ"],
+        exempt: ["บันได < 2 ม. ในพื้นที่ปลอดภัย"],
+        hazards: ["ตกจากที่สูง", "วัตถุตกหล่น"],
+        precheck: [
+          "ตรวจนั่งร้าน/MEWP (Green tag)",
+          "ตรวจสอบบันได (สภาพ, ยางกันลื่น, มุมตั้ง 1:4, มัดยึด)",
+          "กั้นเขตตกวัตถุ"
+        ],
+        ppe: ["Full body harness", "หมวกนิรภัยมีสายรัดคาง", "รองเท้ากันลื่น"],
+        examples: ["เปลี่ยนหลอดไฟในโรงเรือน", "ปีนปรับสายสื่อสาร"],
+        toolbox: ["วิธีปีน 3 จุดสัมผัส", "สัญญาณมือ"],
+        stop: ["ลมแรง/ฝนตก", "ไม่มีจุดยึดที่ได้มาตรฐาน"]
+      },
+      {
+        id: "water",
+        color: "border-sky-200",
+        headerBg: "from-sky-50 to-white",
+        icon: <Ico label="น้ำ" emoji="🛟" className="text-sky-600" />,
+        title: "งานเกี่ยวข้องกับน้ำ (ใกล้/บน/ในน้ำ)",
+        must: ["ซ่อมอุปกรณ์ริมขอบบ่อ", "ลงน้ำซ่อมตะแกรงดูด", "ใช้เครื่องมือไฟฟ้าใกล้น้ำ"],
+        exempt: [
+          "ลงบ่อเช็คอาหารกุ้ง (Routine)",
+          "เดินตรวจระบบน้ำ (Routine)",
+          "เดินบนทางที่มีราวกันตก/พื้นกันลื่น"
+        ],
+        hazards: ["จมน้ำ", "ไฟฟ้าดูดใกล้น้ำ", "ลื่นตะไคร่"],
+        precheck: [
+          "Buddy system + ผู้เฝ้าระวัง",
+          "เสื้อชูชีพมาตรฐาน 100N",
+          "ห่วงชูชีพ/ไม้ตะขอ/เชือกพร้อมใช้"
+        ],
+        ppe: ["เสื้อชูชีพ", "รองเท้ากันลื่น", "หมวกนิรภัยเมื่อยกของ"],
+        examples: ["เดินปิดปั๊มน้ำริมบ่อ", "ลงน้ำเปลี่ยนตะแกรงหัวท่อดูด"],
+        toolbox: ["วิธีช่วยชีวิตเบื้องต้น", "สัญญาณมือกับผู้เฝ้าระวัง"],
+        stop: ["ฝนฟ้าคะนอง", "ไม่มีอุปกรณ์กู้ภัย"]
+      },
+      {
+        id: "mach",
+        color: "border-slate-300",
+        headerBg: "from-slate-50 to-white",
+        icon: <Ico label="เครื่องจักร" emoji="🛠️" className="text-slate-600" />,
+        title: "งานเครื่องจักร (Machine Safety)",
+        must: ["เปิดฝาครอบ/การ์ดเครื่องจักร", "บายพาส Interlock", "ซ่อมบำรุงที่มีพลังงานคงค้าง"],
+        exempt: [
+          "เดินเครื่องตามปกติพร้อมการ์ดครบ",
+          "เปิด Generator ตามรอบทดสอบ (Routine)",
+          "เปิดเครื่องโอโซนตาม SOP งานประจำ"
+        ],
+        hazards: ["ถูกหนีบ/ดึง", "เสียงดัง/สั่นสะเทือน"],
+        precheck: ["LOTO ทุกพลังงาน", "ทดสอบปุ่ม E-Stop", "คืนการ์ดครบ"],
+        ppe: ["ถุงมือกันบาด", "แว่นตา", "ที่อุดหู"],
+        examples: ["ถอดฝาครอบพัดน้ำ", "ปรับตั้งเกียร์กล่องพัดลม"],
+        toolbox: ["วิธีทดลองเดินเครื่อง", "สัญญาณเริ่ม–หยุด"],
+        stop: ["Guard ไม่ครบ", "สัญญาณโอโซนเกินเกณฑ์"]
+      },
+      {
+        id: "lift",
+        color: "border-amber-200",
+        headerBg: "from-amber-50 to-white",
+        icon: <Ico label="ยกเคลื่อนย้าย" emoji="🏗️" className="text-amber-600" />,
+        title: "การยกและผูกมัด (Lifting and Rigging)",
+        must: ["ยกปั๊ม/มอเตอร์ขนาดใหญ่ด้วยเครน/รอก/รถยก"],
+        exempt: ["ยกด้วยแรงคน/รถเข็นตาม WI"],
+        hazards: ["ของร่วงหล่น", "สายสลิงขาด"],
+        precheck: ["ตรวจสลิง/ตะขอ/มุมยก", "ผู้ให้สัญญาณมีใบรับรอง"],
+        ppe: ["หมวกนิรภัย", "เสื้อสะท้อนแสง", "ถุงมือ"],
+        examples: ["ยกปั๊มจุ่มจากบ่ออนุบาล", "ยก Generator ขึ้นแท่น"],
+        toolbox: ["สัญญาณมือ", "เส้นทางเคลื่อนย้าย"],
+        stop: ["อุปกรณ์ยกชำรุด", "ลมแรง"]
+      },
+      {
+        id: "excav",
+        color: "border-lime-200",
+        headerBg: "from-lime-50 to-white",
+        icon: <Ico label="ขุดดิน" emoji="🌳" className="text-lime-700" />,
+        title: "การขุดดิน/วางท่อ",
+        must: ["ขุดบ่อใหม่/คลองส่งน้ำ", "ซ่อมท่อใต้ดิน/วางท่อใหม่"],
+        exempt: ["ขุด/ตักตื้น <0.3 ม. เป็น Routine"],
+        hazards: ["ดินถล่ม", "ชนท่อ/สายไฟใต้ดิน"],
+        precheck: ["Permit to dig + ตรวจผัง", "ทำค้ำยัน/ลาดบ่า", "กั้นเขตงาน"],
+        ppe: ["หมวกนิรภัย", "รองเท้าเซฟตี้", "เสื้อสะท้อนแสง"],
+        examples: ["ขุดวางท่อส่งน้ำ", "ซ่อมท่อรั่วริมน้ำ"],
+        toolbox: ["สัญญาณมือกับแบ็กโฮ", "วิธีเข้าถึงฉุกเฉิน"],
+        stop: ["น้ำซึมมาก/ผนังร้าว", "พบสาธารณูปโภคไม่ได้ระบุ"]
+      }
+    ];
+
+    function Section({ title, icon, colorClass, items }) {
+      return (
+        <div>
+          <strong className={clsx("flex items-center gap-2 mb-1", colorClass)}>
+            {icon} <span>{title}</span>
+          </strong>
+          <ul className="list-disc ml-5 space-y-1">
+            {items.map((m, i) => <li key={i}>{m}</li>)}
+          </ul>
         </div>
-      </div>
-    </section>
+      );
+    }
 
-    <!-- 2 -->
-    <section id="sec2">
-      <h2>ข้อ 2: การระบุอันตราย</h2>
-      <div class="frame">
-        <div class="grid">
-          <div>
-            <h3>การจัดประเภท (GHS/CLP)</h3>
-            <table class="table table-zebra table-compact" aria-label="การจัดประเภทตาม GHS/CLP">
-              <thead><tr><th>อันตราย</th><th>หมวด</th><th>รหัส</th></tr></thead>
-              <tbody>
-                <tr><td>กัดกร่อนโลหะ</td><td>Met. Corr. 1</td><td>H290</td></tr>
-                <tr><td>กัดกร่อนผิวหนัง</td><td>Skin Corr. 1B</td><td>H314</td></tr>
-                <tr><td>ทำลายดวงตา</td><td>Eye Dam. 1</td><td>H318 <span class="muted">(ครอบคลุมโดย H314)</span></td></tr>
-                <tr><td>เป็นพิษต่อสิ่งมีชีวิตในน้ำ (เฉียบพลัน)</td><td>Aquatic Acute 1</td><td>H400</td></tr>
-                <tr><td>เป็นพิษต่อสิ่งมีชีวิตในน้ำ (เรื้อรัง)</td><td>Aquatic Chronic 1</td><td>H410</td></tr>
-                <tr><td>คำสัญญาณ (Signal word)</td><td colspan="2"><strong>Danger</strong></td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div>
-            <h3>สัญลักษณ์อันตราย</h3>
-            <div class="pictos" aria-label="GHS pictograms – left to right">
-              <figure>
-                <img loading="lazy" decoding="async"
-                     src="https://upload.wikimedia.org/wikipedia/commons/a/a1/GHS-pictogram-acid.svg"
-                     alt="GHS05 – Corrosive" width="120" height="120"
-                     onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 210 210%22><rect x=%2230%22 y=%2230%22 width=%22150%22 height=%22150%22 transform=%22rotate(45 105 105)%22 fill=%22#fff%22 stroke=%22#e60000%22 stroke-width=%2218%22/><path d=%22M65 120h35m80 0h-35M95 120c0 15-10 25-25 25 5-10 5-15 0-25m85 0c0 15 10 25 25 25-5-10-5-15 0-25%22 stroke=%22000%22 stroke-width=%228%22 fill=%22none%22/></svg>';"/>
-                <figcaption>GHS05 – Corrosive</figcaption>
-              </figure>
-              <figure>
-                <img loading="lazy" decoding="async"
-                     src="https://upload.wikimedia.org/wikipedia/commons/b/b9/GHS-pictogram-pollu.svg"
-                     alt="GHS09 – Environment" width="120" height="120"
-                     onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 210 210%22><rect x=%2230%22 y=%2230%22 width=%22150%22 height=%22150%22 transform=%22rotate(45 105 105)%22 fill=%22#fff%22 stroke=%22#e60000%22 stroke-width=%2218%22/><path d=%22M50 145h110l-35-18-20 10-15-8-40 16zM140 80c8 10 8 22 6 29-8-7-19-10-27-8 6-7 11-14 21-21z%22 fill=%22000%22/></svg>';"/>
-                <figcaption>GHS09 – Environment</figcaption>
-              </figure>
+    function runSelfTests() {
+      const requiredKeys = ["must", "exempt", "hazards", "precheck", "ppe", "examples", "toolbox", "stop"];
+      const missing = CATS
+        .map(c => ({ id: c.id, miss: requiredKeys.filter(k => !Array.isArray(c[k])) }))
+        .filter(x => x.miss.length > 0);
+      console.log("[SelfTest] categories:", CATS.length, "missing:", missing);
+      const wahHasLadder = (CATS.find(c => c.id === "wah")?.precheck || []).some(s => s.includes("บันได"));
+      const machExemptOk = (CATS.find(c => c.id === "mach")?.exempt || []).join(" ").includes("Generator")
+        && (CATS.find(c => c.id === "mach")?.exempt || []).join(" ").includes("โอโซน");
+      const waterRoutineOk = (CATS.find(c => c.id === "water")?.exempt || []).join(" ").includes("เช็คอาหารกุ้ง")
+        && (CATS.find(c => c.id === "water")?.exempt || []).join(" ").includes("ตรวจระบบน้ำ");
+      console.log("[SelfTest] ladder:", wahHasLadder, "machExempt:", machExemptOk, "waterRoutine:", waterRoutineOk);
+    }
+
+    function App() {
+      const [q, setQ] = useState("");
+
+      useEffect(() => { runSelfTests(); }, []);
+
+      const filtered = useMemo(() => {
+        const k = q.trim().toLowerCase();
+        if (!k) return CATS;
+        return CATS.filter(c => [
+          c.title,
+          ...(c.must || []),
+          ...(c.exempt || []),
+          ...(c.hazards || []),
+          ...(c.precheck || []),
+          ...(c.ppe || []),
+          ...(c.examples || []),
+          ...(c.toolbox || []),
+          ...(c.stop || [])
+        ].join(" ").toLowerCase().includes(k));
+      }, [q]);
+
+      return (
+        <div className="min-h-screen">
+          <header className="sticky top-0 z-40 w-full border-b bg-white/80 backdrop-blur">
+            <div className="mx-auto max-w-6xl px-4 py-3 flex flex-col md:flex-row md:items-center gap-2 md:gap-3">
+              <div className="flex items-center gap-2">
+                <div className="h-8 w-8 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-sm">
+                  <span className="text-white text-sm">🛡️</span>
+                </div>
+                <h1 className="text-base md:text-lg font-semibold leading-tight">คู่มือขออนุญาตทำงาน – ธุรกิจพันธุ์กุ้งทะเล 2</h1>
+              </div>
+              <div className="text-[11px] md:text-xs text-slate-700 md:ml-auto">
+                <div>{DOC.business} • จัดทำโดย {DOC.preparedBy}</div>
+                <div>เลขที่เอกสาร: <strong>{DOC.docNo}</strong> • บังคับใช้: {DOC.effective} • Rev.{DOC.rev} • Review.{DOC.review}</div>
+              </div>
+              <Button id="printBtn" size="sm" variant="secondary" onClick={() => window.print()} className="md:ml-4">
+                🖨️ <span className="ml-2">พิมพ์/บันทึก PDF</span>
+              </Button>
             </div>
-          </div>
+          </header>
+
+          <main className="mx-auto max-w-6xl px-4 py-6">
+            {/* Definition card */}
+            <div className="mb-6">
+              <Card className="border-emerald-200">
+                <CardHeader className="pb-2 bg-emerald-50">
+                  <CardTitle className="flex items-center gap-2">
+                    <span className="text-emerald-600">ℹ️</span>
+                    <span>นิยาม: งานที่ต้องขออนุญาต และงานที่ไม่ต้องขออนุญาต</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="text-sm text-slate-800 space-y-3">
+                  <div>
+                    <span className="inline-flex items-center rounded-full bg-emerald-600 text-white px-2.5 py-0.5 text-xs font-medium mr-2">ต้องขออนุญาต</span>
+                    <ul className="list-disc ml-5 mt-1 space-y-1">
+                      <li>เข้าข่าย TS 5.x (ไฟฟ้า/LOTO, อับอากาศ, งานร้อน, ที่สูง, ใกล้น้ำ, เครื่องจักร)</li>
+                      <li>เป็นงานไม่ประจำ/ดัดแปลงระบบ ไม่มี WI ครอบคลุม หรือทำในพื้นที่หน่วยงานอื่น</li>
+                      <li>กฎหมาย/มาตรฐานกำหนด (Confined Space, Diving, Hot Work)</li>
+                      <li>มีงานซ่อม/ทดสอบ/ใช้เครื่องมือไฟฟ้าใกล้น้ำ หรือพลังงานคงค้างต้อง LOTO</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <span className="inline-flex items-center rounded-full bg-slate-700 text-white px-2.5 py-0.5 text-xs font-medium mr-2">ไม่ต้องขออนุญาต</span>
+                    <ul className="list-disc ml-5 mt-1 space-y-1">
+                      <li>เปิด Generator ตามรอบทดสอบ / เปิดเครื่องโอโซน ตาม SOP (Routine)</li>
+                      <li>ลงบ่อเช็คอาหารกุ้ง และเดินตรวจระบบน้ำ (Routine) บนเส้นทางที่ปลอดภัย</li>
+                      <li>งานไฟฟ้าแบบ plug-and-cord ที่ถอดปลั๊กแล้วและอยู่ในสายตาผู้ทำงาน</li>
+                      <li>ใช้บันไดต่ำกว่า 2 ม. ในพื้นที่ปลอดภัยตาม WI</li>
+                    </ul>
+                  </div>
+                  <div className="text-[12px] text-slate-600">หมายเหตุ: หากขอบเขตงาน/สภาพแวดล้อม/ความเสี่ยงเปลี่ยนแปลง ให้ยกระดับเป็น “ต้องขออนุญาต” ทันที</div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="mb-6 flex items-center gap-2">
+              <Input placeholder="ค้นหาประเภทงาน..." value={q} onChange={e => setQ(e.target.value)} />
+              {q && <Badge variant="secondary" className="ml-2">ผลลัพธ์: {filtered.length}</Badge>}
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-2">
+              {filtered.map(c => (
+                <Card key={c.id} className={clsx("shadow-md overflow-hidden border", c.color)}>
+                  <CardHeader className={clsx("bg-gradient-to-r", c.headerBg)}>
+                    <CardTitle className="flex items-center gap-3">
+                      <div className="flex items-center justify-center h-10 w-10 rounded-full bg-white shadow-sm border">{c.icon}</div>
+                      <span>{c.title}</span>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-sm space-y-3">
+                    <Section title="1. ต้องขอใบอนุญาตเมื่อ:" icon={<span className="text-emerald-700">✅</span>} colorClass="text-emerald-700" items={c.must} />
+                    <Section title="2. ยกเว้นไม่ต้องขออนุญาตเมื่อ:" icon={<span className="text-slate-700">⛔</span>} colorClass="text-slate-700" items={c.exempt} />
+                    <Section title="3. อันตรายหลัก:" icon={<span className="text-red-700">⚠️</span>} colorClass="text-red-700" items={c.hazards} />
+                    <Section title="4. มาตรการ / Pre-start check:" icon={<span className="text-indigo-700">📝</span>} colorClass="text-indigo-700" items={c.precheck} />
+                    <Section title="5. PPE ที่ต้องใช้:" icon={<span className="text-orange-700">👷</span>} colorClass="text-orange-700" items={c.ppe} />
+                    <Section title="6. ตัวอย่างงานเฉพาะของหน่วยงาน:" icon={<span className="text-teal-700">📘</span>} colorClass="text-teal-700" items={c.examples} />
+                    <Section title="7. หัวข้อที่ต้องชี้แจง:" icon={<span className="text-purple-700">ℹ️</span>} colorClass="text-purple-700" items={c.toolbox} />
+                    <Section title="8. หยุดงานทันทีเมื่อ:" icon={<span className="text-pink-700">⏸️</span>} colorClass="text-pink-700" items={c.stop} />
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </main>
         </div>
+      );
+    }
 
-        <h3>ข้อความแสดงอันตราย (H)</h3>
-        <ul>
-          <li><strong>H290</strong> อาจกัดกร่อนโลหะ</li>
-          <li><strong>H314</strong> ก่อให้เกิดแผลไหม้อย่างรุนแรงต่อผิวหนังและทำลายดวงตา</li>
-          <li><strong>H400</strong> มีพิษอย่างรุนแรงต่อสิ่งมีชีวิตในน้ำ</li>
-          <li><strong>H410</strong> มีพิษอย่างรุนแรงต่อสิ่งมีชีวิตในน้ำ โดยมีผลกระทบยาวนาน</li>
-        </ul>
-
-        <h3>ข้อความแนะนำการป้องกัน (P) — สรุป</h3>
-        <div class="pcards">
-          <div class="pcard"><h4>ทั่วไป/ป้องกัน</h4>
-            <ul class="plist">
-              <li><span class="code">P234</span> เก็บไว้ในภาชนะเดิมเท่านั้น</li>
-              <li><span class="code">P260</span> หลีกเลี่ยงการสูดดมไอ/ละออง</li>
-              <li><span class="code">P264</span> ล้างมือ แขน ใบหน้า หลังการจัดการ</li>
-              <li><span class="code">P271</span> ใช้เฉพาะในที่อากาศถ่ายเทดี</li>
-              <li><span class="code">P273</span> หลีกเลี่ยงการปล่อยลงสิ่งแวดล้อม</li>
-              <li><span class="code">P280</span> สวมถุงมือเคมี แว่นครอบตา/กระบังหน้า เสื้อกันสาร</li>
-            </ul>
-          </div>
-          <div class="pcard"><h4>ตอบโต้เหตุ</h4>
-            <ul class="plist">
-              <li><span class="code">P301+P330+P331</span> หากกลืน: บ้วนปาก ห้ามทำให้อาเจียน ติดต่อศูนย์พิษ/แพทย์</li>
-              <li><span class="code">P303+P361+P353</span> ผิวหนัง/ผม: ถอดเสื้อผ้าปนเปื้อน ล้างด้วยน้ำมากๆ</li>
-              <li><span class="code">P304+P340</span> สูดดม: เคลื่อนย้ายไปอากาศบริสุทธิ์</li>
-              <li><span class="code">P305+P351+P338</span> ตา: ล้างน้ำ 15–20 นาที</li>
-              <li><span class="code">P310</span> โทรหาศูนย์พิษ/แพทย์ทันทีเมื่อมีอาการรุนแรง</li>
-              <li><span class="code">P391</span> เก็บกู้สารที่หกรั่วไหล</li>
-            </ul>
-          </div>
-          <div class="pcard"><h4>จัดเก็บ/กำจัด</h4>
-            <ul class="plist">
-              <li><span class="code">P405</span> เก็บในที่ล็อกได้ แยกจากกรด/แอมโมเนีย พ้นแสงแดด</li>
-              <li><span class="code">P501</span> กำจัดตามกฎหมาย (อาจรีดิวซ์ด้วย sodium thiosulfate)</li>
-            </ul>
-          </div>
-        </div>
-
-        <h3>ข้อความเพิ่มเติม (EUH)</h3>
-        <ul>
-          <li><strong>EUH031</strong> สัมผัสกับกรดปล่อยก๊าซพิษ (คลอรีน)</li>
-          <li><strong>EUH206</strong> คำเตือน! ห้ามใช้ร่วมกับผลิตภัณฑ์อื่น อาจปล่อยก๊าซอันตราย</li>
-        </ul>
-
-        <h3>อันตรายอื่นที่ไม่รวมในการจัดประเภท</h3>
-        <ul class="muted">
-          <li>ผสมกับแอมโมเนีย/แอมโมเนียม/ยูเรีย อาจเกิดคลอรามีนที่เป็นพิษ</li>
-          <li>สารละลายด่างจัด (pH ~11.5–13) เสี่ยงทำลายเยื่อบุตาอย่างรุนแรง</li>
-          <li>กัดกร่อนโลหะบางชนิด และอาจทำให้คอนกรีตเสียหายเมื่อสัมผัสซ้ำ</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- 3 -->
-    <section id="sec3">
-      <h2>ข้อ 3: ส่วนประกอบ/ข้อมูลเกี่ยวกับส่วนผสม</h2>
-      <div class="frame">
-        <table class="table table-zebra table-compact" aria-label="ส่วนประกอบ">
-          <thead><tr><th>สาร</th><th>CAS No.</th><th>EC No.</th><th>ความเข้มข้น</th><th>การจัดประเภท GHS</th></tr></thead>
-          <tbody>
-            <tr>
-              <td>Sodium hypochlorite (สารละลาย)</td><td>7681-52-9</td><td>231-668-3</td><td>10% w/w (Cl₂ available ~10–12%)</td>
-              <td>Met. Corr. 1; Skin Corr. 1B; Eye Dam. 1; Aquatic Acute 1; Aquatic Chronic 1</td>
-            </tr>
-            <tr>
-              <td>น้ำ; NaOH (ปรับ pH); NaCl (สิ่งเจือปน)</td>
-              <td>7732-18-5; 1310-73-2; 7647-14-5</td>
-              <td>231-791-2; 215-185-5; 231-598-3</td>
-              <td>สมดุล</td>
-              <td>NaOH: Skin Corr. 1A (หากมีในระดับเกี่ยวข้อง)</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- 4 -->
-    <section id="sec4">
-      <h2>ข้อ 4: มาตรการปฐมพยาบาลเบื้องต้น</h2>
-      <div class="frame">
-        <div class="grid2">
-          <div class="info">
-            <h3>อาการสำคัญ</h3>
-            <table class="table table-compact table-zebra">
-              <thead><tr><th>ช่องทางสัมผัส</th><th>อาการ</th></tr></thead>
-              <tbody>
-                <tr><td>ผิวหนัง</td><td>แสบร้อน แดง พอง/กัดกร่อน</td></tr>
-                <tr><td>ตา</td><td>ปวด/แสบตารุนแรง ตาพร่ามัว น้ำตาไหล เสี่ยงต่อความเสียหายถาวร</td></tr>
-                <tr><td>สูดดม</td><td>ระคายเคืองจมูก/ลำคอ ไอ หายใจลำบาก</td></tr>
-                <tr><td>กลืนกิน</td><td>ปวดแสบปาก/คอ อาเจียน แผลกัดกร่อนทางเดินอาหาร</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="info">
-            <h3>การปฐมพยาบาล</h3>
-            <table class="table table-compact table-zebra">
-              <thead><tr><th>กรณี</th><th>แนวทางปฏิบัติ</th></tr></thead>
-              <tbody>
-                <tr><td>เข้าตา</td><td>ล้างน้ำสะอาดทันทีอย่างน้อย 15–20 นาที เปิดเปลือกตาเป็นระยะ รีบพบแพทย์</td></tr>
-                <tr><td>สัมผัสผิวหนัง</td><td>ล้างด้วยน้ำจำนวนมาก 15 นาที ถอดเสื้อผ้าที่ปนเปื้อน</td></tr>
-                <tr><td>สูดดม</td><td>ย้ายไปอากาศถ่ายเท หากหายใจลำบาก ให้ออกซิเจน ติดต่อแพทย์</td></tr>
-                <tr><td>กลืนกิน</td><td>ล้างปาก ให้ดื่มน้ำ 1–2 แก้ว <u>ห้าม</u>ทำให้อาเจียน ส่งโรงพยาบาลทันที</td></tr>
-              </tbody>
-            </table>
-            <p class="muted" style="margin-top:8px">หมายเหตุ: หลีกเลี่ยงการใช้สารแก้พิษกรด/ด่างโดยไม่มีคำแนะนำแพทย์; ในสถานพยาบาลอาจพิจารณาใช้ <em>sodium thiosulfate</em> ภายใต้ดุลยพินิจแพทย์</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5 -->
-    <section id="sec5">
-      <h2>ข้อ 5: มาตรการระงับอัคคีภัย</h2>
-      <div class="frame">
-        <table class="table table-zebra table-compact">
-          <tbody>
-            <tr><th>สารดับเพลิงที่เหมาะสม</th><td>น้ำสเปรย์/ละออง, โฟม, ผงเคมีแห้ง, CO₂ (ตามชนิดเพลิงบริเวณรอบข้าง)</td></tr>
-            <tr><th>ไม่แนะนำ</th><td>หลีกเลี่ยงฉีดน้ำแรงดันสูงตรงแอ่งสาร (กระจายสาร)</td></tr>
-            <tr><th>อันตรายจากไฟ</th><td>สลายตัวด้วยความร้อน/กรด ปล่อยคลอรีนและออกซิเจน; ภาชนะอาจแตกเมื่อร้อนจัด</td></tr>
-            <tr><th>คำแนะนำผู้ดับเพลิง</th><td>สวม SCBA + ชุดกันสาร ระบายอากาศ ฉีดน้ำหล่อเย็นภาชนะ; ป้องกันน้ำเสียลงแหล่งน้ำ</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- 6 -->
-    <section id="sec6">
-      <h2>ข้อ 6: มาตรการเมื่อมีการรั่วไหลโดยไม่ตั้งใจ</h2>
-      <div class="frame">
-        <div class="grid">
-          <div>
-            <h3>การป้องกันบุคคล/อุปกรณ์</h3>
-            <ul>
-              <li>อพยพผู้ไม่เกี่ยวข้อง ระบายอากาศพื้นที่</li>
-              <li>PPE ครบ: แว่นครอบตา/กระบังหน้า ถุงมือ NBR/Neoprene/PVC เอี๊ยม/ชุดกันสาร รองเท้าบูท</li>
-            </ul>
-          </div>
-          <div>
-            <h3>การป้องกันสิ่งแวดล้อม</h3>
-            <ul>
-              <li>ปิดกั้นท่อระบายน้ำ/ทางน้ำ ห้ามปล่อยลงแหล่งน้ำ</li>
-            </ul>
-          </div>
-        </div>
-        <h3>วิธีเก็บกู้/ทำให้เป็นกลาง</h3>
-        <ul>
-          <li>ดูดซับด้วยทราย/เวอร์มิคูไลต์ ใส่ภาชนะ <strong>HDPE/PP</strong> ปิดสนิท</li>
-          <li>รีดิวซ์ด้วย <em>sodium thiosulfate</em> หรือ <em>sodium bisulfite</em> ภายใต้การควบคุม</li>
-          <li>ล้างพื้นที่ด้วยน้ำอย่างพอเหมาะ หลีกเลี่ยงไหลลงท่อ</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- 7 -->
-    <section id="sec7">
-      <h2>ข้อ 7: การจัดการและการเก็บรักษา</h2>
-      <div class="frame">
-        <div class="grid">
-          <div>
-            <h3>ข้อควรปฏิบัติในการใช้งาน</h3>
-            <ul>
-              <li>ทำงานในที่อากาศถ่ายเท/มีการดูดไอเฉพาะที่</li>
-              <li>ห้ามผสมกับกรด แอมโมเนีย/แอมโมเนียม สารรีดิวซ์ หรือโลหะ</li>
-              <li>ใช้อุปกรณ์/ท่อที่ทนกัดกร่อน: PVC/CPVC/PE/PP/PTFE</li>
-            </ul>
-          </div>
-          <div>
-            <h3>เงื่อนไขการเก็บรักษาอย่างปลอดภัย</h3>
-            <table class="table table-compact table-zebra">
-              <tbody>
-                <tr><th>อุณหภูมิ</th><td>เย็นและมืด (5–25°C) หลีกเลี่ยงความร้อน/แสง</td></tr>
-                <tr><th>ภาชนะ</th><td>แนะนำ HDPE/PP; ปิดสนิท; บริเวณจัดเก็บต้องระบายอากาศดี</td></tr>
-                <tr><th>การแยกเก็บ</th><td>แยกจากกรด สารอินทรีย์ ตัวรีดิวซ์ และโลหะ</td></tr>
-                <tr><th>การป้องกัน</th><td>กันแสงแดด/UV; ป้องกันปนเปื้อนโลหะ; ติดป้ายเตือนชัดเจน</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8 -->
-    <section id="sec8">
-      <h2>ข้อ 8: การควบคุมการสัมผัสและการป้องกันส่วนบุคคล</h2>
-      <div class="frame">
-        <div class="grid">
-          <div>
-            <h3>ค่าเกณฑ์การสัมผัส (ตัวอย่างอ้างอิง)</h3>
-            <table class="table table-zebra table-compact">
-              <thead><tr><th>สาร</th><th>หน่วยงาน</th><th>ค่า</th><th>หมายเหตุ</th></tr></thead>
-              <tbody>
-                <tr><td>คลอรีน (Chlorine)</td><td>ACGIH TLV-C</td><td>0.5 ppm (Ceiling)</td><td>อาจเกิดจากการสลายตัวของ NaOCl</td></tr>
-                <tr><td>คลอรีน (Chlorine)</td><td>OSHA PEL-C</td><td>0.5 ppm (Ceiling)</td><td>—</td></tr>
-                <tr><td>คลอรีน (Chlorine)</td><td>NIOSH REL</td><td>C 0.5 ppm; ST 1 ppm (15 นาที)</td><td>—</td></tr>
-              </tbody>
-            </table>
-            <p class="muted">หมายเหตุ: ไม่มีค่า TWA/STEL เฉพาะสำหรับสารละลายโซเดียมไฮโปคลอไรต์</p>
-          </div>
-          <div>
-            <h3>PPE ที่แนะนำ</h3>
-            <ul>
-              <li><strong>ตา/หน้า:</strong> แว่นครอบตาเคมี + กระบังหน้า</li>
-              <li><strong>มือ:</strong> ถุงมือ NBR/Neoprene/PVC (≥0.4 มม.)</li>
-              <li><strong>ร่างกาย:</strong> เอี๊ยม/เสื้อกันสารเคมี, รองเท้าบูทกันสาร</li>
-              <li><strong>ระบบหายใจ:</strong> หน้ากากกรองไอ/หมอกอนินทรีย์ + P2/P3; ใช้ SCBA ในกรณีฉุกเฉิน</li>
-              <li><strong>วิศวกรรม:</strong> ดูดไอเฉพาะที่/ตู้ดูดควัน; มีฝักบัวนิรภัยและที่ล้างตา</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 9 -->
-    <section id="sec9">
-      <h2>ข้อ 9: สมบัติทางกายภาพและเคมี</h2>
-      <div class="frame">
-        <table class="table table-zebra table-compact">
-          <tbody>
-            <tr><th>ลักษณะ</th><td>ของเหลว สีเหลืองอ่อนถึงเขียวอ่อน มีกลิ่นคลอรีน</td></tr>
-            <tr><th>pH (20–25 °C)</th><td>~ 11.5 – 13</td></tr>
-            <tr><th>จุดเดือดเริ่มต้น</th><td>~ 100 – 111 °C</td></tr>
-            <tr><th>จุดเยือกแข็ง</th><td>&lt; 0 °C (ขึ้นกับความเข้มข้น)</td></tr>
-            <tr><th>จุดวาบไฟ</th><td>ไม่ติดไฟ</td></tr>
-            <tr><th>ความหนาแน่น (20 °C)</th><td>~ 1.15 – 1.21 g/cm³</td></tr>
-            <tr><th>การละลายน้ำ</th><td>ละลายได้สมบูรณ์</td></tr>
-            <tr><th>แรงดันไอ (20 °C)</th><td>ใกล้เคียงน้ำ; อาจมีไอคลอรีนเล็กน้อย</td></tr>
-            <tr><th>ความหนืด</th><td>ใกล้เคียงน้ำ</td></tr>
-            <tr><th>VOC</th><td>ไม่มี</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- 10 -->
-    <section id="sec10">
-      <h2>ข้อ 10: ความเสถียรและความไวต่อการเกิดปฏิกิริยา</h2>
-      <div class="frame">
-        <ul>
-          <li><strong>ปฏิกิริยา:</strong> สารออกซิไดซ์อ่อน; สลายเมื่อถูกความร้อน/แสง/กรด</li>
-          <li><strong>เสถียรภาพเคมี:</strong> เสถียรภายใต้สภาวะปกติ แต่ค่อยๆ เสื่อม (เกิดคลอเรต)</li>
-          <li><strong>สภาวะที่ต้องหลีกเลี่ยง:</strong> แสงแดด, ความร้อน, pH ต่ำ, การปนเปื้อนโลหะ</li>
-          <li><strong>สารที่เข้ากันไม่ได้:</strong> กรด, แอมโมเนีย/แอมโมเนียม/ยูเรีย, สารรีดิวซ์, สารอินทรีย์บางชนิด, โลหะ</li>
-          <li><strong>ผลิตผลสลายตัวอันตราย:</strong> คลอรีน (Cl₂), ออกซิเจน (O₂), NaCl, NaClO₃</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- 11 -->
-    <section id="sec11">
-      <h2>ข้อ 11: ข้อมูลพิษวิทยา</h2>
-      <div class="frame">
-        <table class="table table-zebra table-compact">
-          <tbody>
-            <tr><th>พิษเฉียบพลัน (ทางปาก, หนู)</th><td>LD₅₀ ~ 8,200 mg/kg (สารละลาย)</td></tr>
-            <tr><th>พิษเฉียบพลัน (ทางผิวหนัง)</th><td>ก่อการกัดกร่อนผิวหนังรุนแรง</td></tr>
-            <tr><th>ระคายเคือง/กัดกร่อน</th><td>ผิวหนัง: กัดกร่อน 1B; ตา: ทำลายตา 1</td></tr>
-            <tr><th>ความไวต่อการก่อภูมิแพ้</th><td>ไม่คาดว่าจะเป็นสารก่อภูมิแพ้ผิวหนัง</td></tr>
-            <tr><th>การก่อมะเร็ง/พันธุกรรม/สืบพันธุ์</th><td>ไม่มีข้อมูลบ่งชี้สำคัญ</td></tr>
-            <tr><th>อวัยวะเป้าหมาย</th><td>ทางเดินหายใจส่วนบน (การระคายเคือง)</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- 12 -->
-    <section id="sec12">
-      <h2>ข้อ 12: ข้อมูลระบบนิเวศ</h2>
-      <div class="frame">
-        <ul>
-          <li><strong>พิษต่อสิ่งมีชีวิตน้ำ:</strong> สูง (Aquatic Acute 1; Chronic 1)</li>
-          <li><strong>คงตัว/ย่อยสลายได้:</strong> สลายเป็นคลอไรด์ภายใต้สภาพแวดล้อม</li>
-          <li><strong>สะสมในสิ่งมีชีวิต:</strong> ไม่น่าจะสะสม (อนินทรีย์)</li>
-          <li><strong>การเคลื่อนย้ายในดิน:</strong> เคลื่อนย้ายได้สูงในรูปไอออน</li>
-          <li><strong>ข้อควรระวังสิ่งแวดล้อม:</strong> ป้องกันไม่ให้ลงท่อระบายน้ำ/แหล่งน้ำ</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- 13 -->
-    <section id="sec13">
-      <h2>ข้อ 13: ข้อควรพิจารณาในการกำจัด</h2>
-      <div class="frame">
-        <ul>
-          <li>ทำให้เป็นกลาง/รีดิวซ์ (เช่น โซเดียมไทโอซัลเฟต) ภายใต้การควบคุม ส่งกำจัดโดยผู้รับอนุญาต</li>
-          <li>ภาชนะเปล่า: ล้างน้ำหลายครั้งก่อนส่งรีไซเคิล/กำจัด; ห้ามนำกลับมาใช้บรรจุอาหาร/น้ำ</li>
-          <li>ปฏิบัติตามกฎหมายท้องถิ่น/ประเทศ</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- 14 -->
-    <section id="sec14">
-      <h2>ข้อ 14: ข้อมูลเกี่ยวกับการขนส่ง</h2>
-      <div class="frame">
-        <div class="grid-3">
-          <div class="info"><h3>ADR/RID</h3><p><strong>UN 1791</strong> – Hypochlorite solution<br>ชั้น 8; PG III</p></div>
-          <div class="info"><h3>IMDG</h3><p><strong>UN 1791</strong> – Hypochlorite solution<br>ชั้น 8; PG III<br><em>Marine pollutant:</em> ใช่ (เมื่อเข้าเกณฑ์)</p></div>
-          <div class="info"><h3>IATA/ICAO</h3><p><strong>UN 1791</strong> – Hypochlorite solution<br>ชั้น 8; PG III</p></div>
-        </div>
-        <p><strong>ฉลากขนส่ง:</strong> 8 (Corrosive) และเครื่องหมายสิ่งแวดล้อม (ถ้าบังคับใช้)</p>
-      </div>
-    </section>
-
-    <!-- 15 -->
-    <section id="sec15">
-      <h2>ข้อ 15: ข้อมูลเกี่ยวกับกฎหมาย</h2>
-      <div class="frame">
-        <ul>
-          <li>สอดคล้อง GHS/CLP (EU) และ OSHA HazCom 2012 (US)</li>
-          <li>ประเทศไทย: พ.ร.บ.วัตถุอันตราย และประกาศหน่วยงานที่เกี่ยวข้อง</li>
-          <li>Storage Class (VCI): 8B – สารกัดกร่อน ไม่ไวไฟ</li>
-          <li>ชนิดวัตถุอันตราย: ประเภทที่ 2 (วัตถุกัดกร่อน)</li>
-        </ul>
-        <p class="muted">ผู้ใช้ต้องปฏิบัติตามข้อกำหนดเฉพาะของสถานประกอบการ/ท้องถิ่น และการขึ้นทะเบียนที่เกี่ยวข้อง</p>
-      </div>
-    </section>
-
-    <!-- 16 -->
-    <section id="sec16">
-      <h2>ข้อ 16: ข้อมูลอื่น ๆ</h2>
-      <div class="frame">
-        <div class="grid">
-          <div>
-            <h3>การควบคุมเอกสาร (Document Control)</h3>
-            <table class="table table-compact" aria-label="Document control">
-              <tbody>
-                <tr><th>หมายเลขเอกสาร</th><td>MSBRC2-SDS-01</td></tr>
-                <tr><th>ชื่อผลิตภัณฑ์</th><td>Sodium hypochlorite 10% (NaOCl)</td></tr>
-                <tr><th>เอกสารนี้จัดทำโดย</th><td>หน่วยงาน SHE&En ธุรกิจพันธุ์กุ้งทะเล 2</td></tr>
-                <tr><th>สถานะ</th><td>ใช้งาน (Effective)</td></tr>
-                <tr><th>ช่องทางฉุกเฉิน</th><td>063-269-2902, 02-918-1010, 084-698-2003</td></tr>
-                <tr><th>การแจกจ่าย</th><td>ภายในองค์กรและคู่ค้าที่เกี่ยวข้องเท่านั้น</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div>
-            <h3>แหล่งข้อมูลอ้างอิงหลัก</h3>
-            <ul>
-              <li>GHS, CLP, OSHA HazCom 2012</li>
-              <li>ADR/IMDG/IATA — ข้อมูลการขนส่งสารอันตราย</li>
-              <li>กฎหมายไทยด้านวัตถุอันตราย/สิ่งแวดล้อมที่เกี่ยวข้อง</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="info">
-          <strong>คำชี้แจงความรับผิดชอบ:</strong> เอกสารนี้จัดทำเพื่อสนับสนุนความปลอดภัยในการทำงาน อ้างอิงข้อมูลที่เชื่อถือได้ แต่ไม่ใช่การรับประกันคุณสมบัติของผลิตภัณฑ์ ผู้ใช้ต้องประเมินความเสี่ยง ณ สถานที่ปฏิบัติงานจริงและปฏิบัติตามกฎหมายที่เกี่ยวข้อง
-        </div>
-      </div>
-    </section>
-
-  </div>
-</div>
-
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
 </body>
 </html>
